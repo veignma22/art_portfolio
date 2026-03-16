@@ -9,22 +9,22 @@ export default function PoemDetail() {
   const username = localStorage.getItem('username')
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/poems/${id}`).then(res => setPoem(res.data))
+    axios.get(`https://prosek.shop/veignma22/3240/api/poems/${id}`).then(res => setPoem(res.data))
   }, [id])
 
   const handleDelete = async () => {
     const token = localStorage.getItem('token')
-    await axios.delete(`http://localhost:3001/api/poems/${id}`, {
+    await axios.delete(`https://prosek.shop/veignma22/3240/api/poems/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     navigate('/')
   }
 
-  if (!poem) return <p>Načítám...</p>
+  if (!poem) return <p>Načítám</p>
 
   return (
     <div>
-      <button onClick={() => navigate('/')}>← Zpět</button>
+      <button onClick={() => navigate('/')}>Zpět</button>
       <h1>{poem.title}</h1>
       <p>{poem.username}</p>
       <p>{poem.content}</p>

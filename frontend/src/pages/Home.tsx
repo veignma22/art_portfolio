@@ -8,7 +8,7 @@ export default function Home() {
   const username = localStorage.getItem('username')
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/poems').then(res => setPoems(res.data))
+    axios.get('https://prosek.shop/veignma22/3240/api/poems').then(res => setPoems(res.data))
   }, [])
 
   const handleLogout = () => {
@@ -28,7 +28,7 @@ export default function Home() {
           </>
         ) : (
           <>
-            <button onClick={() => navigate('/login')}>Login</button>
+            <button onClick={() => navigate('/login')}>Přihlášení</button>
             <button onClick={() => navigate('/register')}>Registrace</button>
           </>
         )}

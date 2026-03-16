@@ -8,7 +8,7 @@ export default function Login() {
   const navigate = useNavigate()
 
   const handleLogin = async () => {
-    const res = await axios.post('http://localhost:3001/api/auth/login', { email, password })
+    const res = await axios.post('https://prosek.shop/veignma22/3240/api/auth/login', { email, password })
     localStorage.setItem('token', res.data.token)
     localStorage.setItem('username', res.data.username)
     navigate('/')
@@ -16,7 +16,7 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Přihlášení</h1>
       <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
       <input placeholder="Heslo" type="password" value={password} onChange={e => setPassword(e.target.value)} />
       <button onClick={handleLogin}>Přihlásit se</button>

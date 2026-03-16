@@ -9,7 +9,7 @@ export default function NewPoem() {
 
   const handleSubmit = async () => {
     const token = localStorage.getItem('token')
-    await axios.post('http://localhost:3001/api/poems', { title, content }, {
+    await axios.post('https://prosek.shop/veignma22/3240/api/poems', { title, content }, {
       headers: { Authorization: `Bearer ${token}` }
     })
     navigate('/')
@@ -17,10 +17,13 @@ export default function NewPoem() {
 
   return (
     <div>
+      <button onClick={() => navigate('/')}>Zpět</button>
       <h1>Nová báseň</h1>
-      <input placeholder="Název" value={title} onChange={e => setTitle(e.target.value)} />
-      <textarea placeholder="Obsah básně..." value={content} onChange={e => setContent(e.target.value)} />
-      <button onClick={handleSubmit}>Publikovat</button>
+      <div>
+        <input placeholder="Název" value={title} onChange={e => setTitle(e.target.value)} />
+        <textarea placeholder="Obsah básně..." value={content} onChange={e => setContent(e.target.value)} />
+        <button onClick={handleSubmit}>Publikovat</button>
+      </div>
     </div>
   )
 }

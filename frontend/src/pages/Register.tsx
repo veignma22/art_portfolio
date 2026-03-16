@@ -9,7 +9,7 @@ export default function Register() {
   const navigate = useNavigate()
 
   const handleRegister = async () => {
-    await axios.post('http://localhost:3001/api/auth/register', { username, email, password })
+    await axios.post('https://prosek.shop/veignma22/3240/api/auth/register', { username, email, password })
     navigate('/login')
   }
 
