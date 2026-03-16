@@ -1,0 +1,25 @@
+import { useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+export default function Login() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
+
+  const handleLogin = async () => {
+    const res = await axios.post('http://localhost:3001/api/auth/login', { email, password })
+    localStorage.setItem('token', res.data.token)
+    localStorage.setItem('username', res.data.username)
+    navigate('/')
+  }
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+      <input placeholder="Heslo" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      <button onClick={handleLogin}>Přihlásit se</button>
+    </div>
+  )
+}
